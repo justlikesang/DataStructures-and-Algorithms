@@ -17,6 +17,17 @@ Output: [2,1]
 
 */
 
+// class Node {
+//   constructor(val) {
+//     this.val = val;
+//     this.next = null;
+//   }
+// }
+function ListNode(val, next) {
+  this.val = val;
+  this.next = next;
+}
+
 var reverseList = function (head) {
   let currNode = head;
   let prevNode = null;
@@ -29,3 +40,6 @@ var reverseList = function (head) {
   }
   return prevNode;
 };
+
+const hello = new ListNode(5, next = null);
+console.log(hello);
