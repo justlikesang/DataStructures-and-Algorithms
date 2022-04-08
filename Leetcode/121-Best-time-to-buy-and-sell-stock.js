@@ -26,19 +26,40 @@ Constraints:
 0 <= prices[i] <= 104
 */
 
-const maxProfit = (prices) => {
-  let lowestMin = +Infinity;
-  let profit = 0;
+var maxProfit = function (prices) {
+  // create variable cheapestPrice and assign +Infinity
+  // create variable maxProfit and assign 0
+  // iterate through the prices array
+  // if the current element is less than cheapestPrice
+  // assign cheapestPrice to be prices[i]
+  // else (the price is greater than cheapest, we find the maxProfit)
+  // assign maxProfit to be equal to when compared with curr maxProfit and prices[i] - cheapest
 
+  let cheapestPrice = +Infinity;
+  let maxProfit = 0;
   for (let i = 0; i < prices.length; i++) {
-    if (prices[i] < lowestMin) {
-      lowestMin = prices[i];
-    } else if (prices[i] - lowestMin > profit) {
-      profit = prices[i] - lowestMin;
+    if (prices[i] < cheapestPrice) {
+      cheapestPrice = prices[i];
+    } else {
+      maxProfit = Math.max(maxProfit, prices[i] - cheapestPrice);
     }
   }
-  return profit;
+  return maxProfit;
 };
+
+// const maxProfit = (prices) => {
+//   let lowestMin = +Infinity;
+//   let profit = 0;
+
+//   for (let i = 0; i < prices.length; i++) {
+//     if (prices[i] < lowestMin) {
+//       lowestMin = prices[i];
+//     } else if (prices[i] - lowestMin > profit) {
+//       profit = prices[i] - lowestMin;
+//     }
+//   }
+//   return profit;
+// };
 
 console.log(maxProfit([7, 1, 5, 3, 6, 4]));
 console.log(maxProfit([7, 6, 4, 3, 1]));
